@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ABSExpert</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e5ddd5;
+    }
+    .chat-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .header {
+      background-color: #075e54;
+      color: white;
+      padding: 15px;
+      font-weight: bold;
+    }
+    .messages {
+      padding: 20px;
+      height: 300px;
+      overflow-y: auto;
+    }
+    .input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .input input {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      outline: none;
+    }
+    .input button {
+      background-color: #075e54;
+      color: white;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="header">ABSExpert</div>
+    <div class="messages" id="messages">
+      <p><strong>ABSExpert:</strong> Olá! Sou o ABSExpert. Envie sua dúvida e eu responderei de imediato, vamos juntos!</p>
+    </div>
+    <div class="input">
+      <input type="text" id="userInput" placeholder="Digite sua pergunta..." />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+  <script>
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const messages = document.getElementById('messages');
+      const userText = input.value.trim();
+      if (!userText) return;
+      messages.innerHTML += `<p><strong>Você:</strong> ${userText}</p>`;
+      messages.innerHTML += `<p><strong>ABSExpert:</strong> (resposta simulada)</p>`;
+      input.value = "";
+      messages.scrollTop = messages.scrollHeight;
+    }
+  </script>
+</body>
+</html>
